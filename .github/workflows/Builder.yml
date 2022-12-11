@@ -1,0 +1,37 @@
+name: Kernel Builder
+
+on:
+  workflow_dispatch:
+    inputs:
+         REPO_LINK:
+          description: "Kernel Tree Repo Link"
+          required: true
+          default: ""
+
+         BRANCH_NAME:
+          description: "Kernel Tree Branch Name"
+          required: true
+          default: ""
+
+env:
+  REPO_LINK: ${{ github.event.inputs.REPO_LINK }}
+  BRANCH_NAME: ${{ github.event.inputs.BRANCH_NAME }}
+  BUILD_ID: ${{ github.run_number }}
+  BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+  TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Initializing build environment
+        run: |
+          sudo apt update && sudo apt upgrade
+          sudo apt-get install automake bc bison build-essential ccache clang cpio curl gcc git libc6 lld llvm libncurses5-dev libssl-dev libstdc++6 make python3-pip unzip wget zip zipalign -y
+      - name: Build Kernel
+        run: |
+          bash build.sh
