@@ -22,13 +22,13 @@ file() {
 }
 
 # Cloning Anykernel
-git clone --depth=1  -b main $WORKING_DIR/Anykernel
+git clone --depth=1 https://github.com/Bhav06/AnyKernel3.git -b main $WORKING_DIR/Anykernel
 
 # Cloning Kernel
 git clone --depth=1 $REPO_LINK -b $BRANCH_NAME $WORKING_DIR/kernel
 
 # Cloning Toolchain
-git clone --depth=1  -b master $WORKING_DIR/toolchain
+git clone --depth=1 https://gitlab.com/GhostMaster69-dev/cosmic-clang.git -b release/15.x $WORKING_DIR/toolchain
 
 # Change Directory to the Source Directry
 cd $WORKING_DIR/kernel
@@ -43,7 +43,7 @@ ZIP_NAME=Garuda-Kernel-1.0-Beta-Release-$(TZ=Asia/Kolkata date +%Y%m%d-%H%M).zip
 BUILD_START=$(date +"%s")
 msg "<b>$BUILD_ID CI Build Triggered</b>%0A<b>Docker OS: </b><code>$DISTRO</code>%0A<b>Date : </b><code>$(TZ=Asia/Kolkata date)</code>%0A<b>Device : </b><code>$DEVICE</code>%0A<b>Compiler : </b><code>$COMPILER</code>%0A<b>Branch: </b><code>$BRANCH_NAME</code>"
 export KBUILD_BUILD_USER="Bhav06"
-export KBUILD_BUILD_HOST="GitHub"
+export KBUILD_BUILD_HOST="Cosmic-Horizon"
 export ARCH=arm64
 export PATH="$WORKING_DIR/toolchain/bin/:$PATH"
 make O=out vince-perf_defconfig
