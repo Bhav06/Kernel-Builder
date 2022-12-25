@@ -23,6 +23,8 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/bhav06/docker:latest
     
     steps:
       - name: Checkout
