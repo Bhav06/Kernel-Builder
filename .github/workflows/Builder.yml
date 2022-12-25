@@ -6,12 +6,12 @@ on:
          REPO_LINK:
           description: "Kernel Tree Repo Link"
           required: true
-          default: ""
+          default: "https://github.com/Bhav06/android_kernel_xiaomi_vince.git"
 
          BRANCH_NAME:
           description: "Kernel Tree Branch Name"
           required: true
-          default: ""
+          default: "master"
 
 env:
   REPO_LINK: ${{ github.event.inputs.REPO_LINK }}
