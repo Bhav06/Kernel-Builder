@@ -24,7 +24,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/bhav06/docker:latest
+      image: ubuntu:jammy-20211029
     
     steps:
       - name: Checkout
@@ -33,7 +33,8 @@ jobs:
       - name: Initializing build environment
         run: |
           sudo apt update && sudo apt upgrade
-          
+          sudo apt-get install automake bc bison build-essential ccache clang cpio curl gcc git libc6 lld llvm libncurses5-dev libssl-dev libstdc++6 make python3-pip unzip wget zip zipalign -y
+        
       - name: Build Kernel
         run: |
           bash build.sh
