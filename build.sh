@@ -28,7 +28,7 @@ git clone --depth=1 https://github.com/Bhav06/AnyKernel3.git -b main $WORKING_DI
 git clone --depth=1 $REPO_LINK -b $BRANCH_NAME $WORKING_DIR/kernel
 
 # Cloning Toolchain
-git clone --depth=1 https://gitlab.com/GhostMaster69-dev/cosmic-clang.git -b release/15.x $WORKING_DIR/toolchain
+git clone --depth=1 https://github.com/kdrag0n/proton-clang.git -b master $WORKING_DIR/toolchain
 
 # Change Directory to the Source Directry
 cd $WORKING_DIR/kernel
