@@ -71,8 +71,8 @@ if [ -e out/arch/arm64/boot/Image.gz-dtb ] && [ -e out/arch/arm64/boot/dtbo.img 
 cp out/arch/arm64/boot/Image.gz-dtb $WORKING_DIR/Anykernel
 cp out/arch/arm64/boot/dtbo.img $WORKING_DIR/Anykernel
 cd $WORKING_DIR/Anykernel
-zip -r9 Garuda * -x .git README.md *placeholder
-file "$WORKING_DIR" "*Build Completed :* $((DIFF / 60)) minute(s) and $((DIFF % 60)) second(s)"
+zip -r9 $ZIP_NAME * -x .git README.md *placeholder
+file "$WORKING_DIR/$ZIP_NAME" "*Build Completed :* $((DIFF / 60)) minute(s) and $((DIFF % 60)) second(s)"
 else
 file "$WORKING_DIR/kernel/out/error.txt" "*Build Failed :* $((DIFF / 60)) minute(s) and $((DIFF % 60)) second(s)"
 fi
